@@ -22,8 +22,13 @@ Provides custom post type and shortcode for creating [chart.js](http://www.chart
 
 ## Changelog ##
 
-### 1.0.0 ###
+### 1.0.1 ###
+Bug Fixes:
+* Fixed bug related to first time click on file
+* Updated shortcode to generate id based on post id and not slug
+* Fixed expected chart ID value when attempting to generate a chart legend
 
+### 1.0.0 ###
 * Initial Release
 
 
