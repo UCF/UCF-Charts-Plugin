@@ -3,7 +3,7 @@ Contributors: ucfwebcom
 Tags: charts, chart.js, shortcodes
 Requires at least: 4.7.5
 Tested up to: 4.7.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/copyleft/gpl-3.0.html
 
@@ -29,8 +29,13 @@ Provides custom post type and shortcode for creating [chart.js](http://www.chart
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.1 =
+Bug Fixes:
+* Fixed bug related to first time click on file
+* Updated shortcode to generate id based on post id and not slug
+* Fixed expected chart ID value when attempting to generate a chart legend
 
+= 1.0.0 =
 * Initial Release
 
 
