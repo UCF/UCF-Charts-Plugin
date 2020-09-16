@@ -47,18 +47,27 @@ if ( ! class_exists( 'UCF_Chart_Shortcode' ) ) {
 				$options_json = get_post_meta( $chart->ID, 'ucf_chart_options_json', TRUE );
 				$options_file = wp_get_attachment_url( $options_json );
 
-				if ( ! $data_file ) return '';
+				$data_obj     = get_post_meta( $chart->ID, 'ucf_chart_data', TRUE );
+				$options_obj  = get_post_meta( $chart->ID, 'ucf_chart_options', TRUE );
+
+				if ( ! $data_file && ! $data_obj ) return '';
 
 				$args = array(
-					'id'              => "custom-chart-{$id}",
-					'class'           => $class,
-					'data-chart-type' => $chart_type,
-					'data-chart-data' => $data_file
+					'id'                   => "custom-chart-{$id}",
+					'class'                => $class,
+					'data-chart-type'      => $chart_type,
+					'data-chart-data'      => $data_file,
+					'data-chart-data-obj'  => trim( preg_replace( '/\s\s+/', ' ', $data_obj ) )
 				);
 
 				// Add options file if provided (not required)
 				if ( $options_file ) {
 					$args['data-chart-options'] = $options_file;
+				}
+
+				// Add options obj if provided (not required)
+				if ( $options_obj ) {
+					$args['data-chart-options-obj'] = trim( preg_replace( '/\s\s+/', ' ', $options_obj ) );
 				}
 
 				$flattened = $args;

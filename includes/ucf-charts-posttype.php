@@ -57,6 +57,8 @@ if ( ! class_exists( 'UCF_Chart_PostType' ) ) {
 			$chart_types = UCF_Chart_Common::get_chart_types();
 
 			$chart_type       = get_post_meta( $post->ID, 'ucf_chart_type', TRUE );
+			$chart_data       = get_post_meta( $post->ID, 'ucf_chart_data', TRUE );
+			$chart_options       = get_post_meta( $post->ID, 'ucf_chart_options', TRUE );
 			$data_json        = get_post_meta( $post->ID, 'ucf_chart_data_json', TRUE );
 			$data_json_url    = wp_get_attachment_url( $data_json );
 			$options_json     = get_post_meta( $post->ID, 'ucf_chart_options_json', TRUE );
@@ -85,7 +87,19 @@ if ( ! class_exists( 'UCF_Chart_PostType' ) ) {
 						</td>
 					</tr>
 					<tr>
-						<th><strong>Chart Data JSON</strong></th>
+						<th><strong>Chart Data</strong></th>
+						<td>
+							<textarea class="meta-textarea-field" id="ucf_chart_data" name="ucf_chart_data" cols="100" rows="10"><?php echo $chart_data; ?></textarea>
+						</td>
+					</tr>
+					<tr>
+						<th><strong>Chart Options</strong></th>
+						<td>
+							<textarea class="meta-textarea-field" id="ucf_chart_options" name="ucf_chart_options" cols="100" rows="10"><?php echo $chart_options; ?></textarea>
+						</td>
+					</tr>
+					<tr>
+						<th><strong>Chart Data</strong></th>
 						<td>
 							<div class="data-json-preview meta-file-wrap <?php echo empty( $data_json ) ? ' hidden' : ''?>">
 								<span class="dashicons dashicons-media-code"></span>
@@ -143,12 +157,22 @@ if ( ! class_exists( 'UCF_Chart_PostType' ) ) {
 				|| ! wp_verify_nonce( $_POST['ucf_chart_nonce'], 'ucf_chart_nonce_save' )
 			) return;
 
-			$chart_type   = isset( $_POST['ucf_chart_type'] ) ? $_POST['ucf_chart_type'] : null;
-			$data_json    = isset( $_POST['ucf_chart_data_json'] ) ? $_POST['ucf_chart_data_json'] : null;
-			$options_json = isset( $_POST['ucf_chart_options_json'] ) ? $_POST['ucf_chart_options_json'] : null;
+			$chart_type    = isset( $_POST['ucf_chart_type'] ) ? $_POST['ucf_chart_type'] : null;
+			$chart_data    = isset( $_POST['ucf_chart_data'] ) ? $_POST['ucf_chart_data'] : null;
+			$chart_options = isset( $_POST['ucf_chart_options'] ) ? $_POST['ucf_chart_options'] : null;
+			$data_json     = isset( $_POST['ucf_chart_data_json'] ) ? $_POST['ucf_chart_data_json'] : null;
+			$options_json  = isset( $_POST['ucf_chart_options_json'] ) ? $_POST['ucf_chart_options_json'] : null;
 
 			if ( ! add_post_meta( $post_id, 'ucf_chart_type', $chart_type, true ) ) {
 				update_post_meta( $post_id, 'ucf_chart_type', $chart_type );
+			}
+
+			if ( ! add_post_meta( $post_id, 'ucf_chart_data', $chart_data, true ) ) {
+				update_post_meta( $post_id, 'ucf_chart_data', $chart_data );
+			}
+
+			if ( ! add_post_meta( $post_id, 'ucf_chart_options', $chart_options, true ) ) {
+				update_post_meta( $post_id, 'ucf_chart_options', $chart_options );
 			}
 
 			if ( ! add_post_meta( $post_id, 'ucf_chart_data_json', $data_json, true ) ) {

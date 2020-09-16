@@ -18,7 +18,8 @@ define( 'UCF_CHARTS__PLUGIN_URL', plugins_url( basename( dirname( __FILE__ ) ) )
 define( 'UCF_CHARTS__STATIC_URL', UCF_CHARTS__PLUGIN_URL . '/static' );
 define( 'UCF_CHARTS__JS_URL', UCF_CHARTS__STATIC_URL . '/js' );
 
-define( 'UCF_CHARTS__VENDOR_JS_URL', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js' );
+// define( 'UCF_CHARTS__VENDOR_JS_URL', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js' );
+define( 'UCF_CHARTS__VENDOR_JS_URL', 'https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js');
 
 include_once 'admin/ucf-charts-config.php';
 include_once 'admin/ucf-charts-admin.php';
