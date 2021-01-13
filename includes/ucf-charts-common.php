@@ -27,28 +27,31 @@ if ( ! class_exists( 'UCF_Chart_Common' ) ) {
 		}
 
 		/**
-		 * Handles enqueuing frontend assets
+		 * Handles registering frontend assets
 		 * @author Jim Barnes
 		 * @since 1.0.0
 		 **/
-		public static function enqueue_frontend_assets() {
+		public static function register_frontend_assets() {
 			if ( UCF_Chart_Config::get_option_or_default( 'include_js' ) ) {
-				wp_enqueue_script(
+				$plugin_data    = get_plugin_data( UCF_CHARTS__PLUGIN_FILE, false, false );
+				$plugin_version = $plugin_data['Version'];
+
+				wp_register_script(
 					'chart-js',
 					UCF_CHARTS__VENDOR_JS_URL,
 					array( 'jquery' ),
 					null,
 					True
 				);
-			}
 
-			wp_enqueue_script(
-				'ucf-chart',
-				UCF_CHARTS__JS_URL . '/ucf-chart.min.js',
-				array( 'jquery', 'chart-js' ),
-				null,
-				True
-			);
+				wp_register_script(
+					'ucf-chart',
+					UCF_CHARTS__JS_URL . '/ucf-chart.min.js',
+					array( 'jquery', 'chart-js' ),
+					$plugin_version,
+					True
+				);
+			}
 		}
 
 		/**

@@ -69,6 +69,12 @@ if ( ! class_exists( 'UCF_Chart_Shortcode' ) ) {
 
 				$args_string = implode( $flattened );
 
+				// Enqueue JS late (to avoid including these scripts on every page)
+				if ( UCF_Chart_Config::get_option_or_default( 'include_js' ) ) {
+					wp_enqueue_script( 'chart-js' );
+					wp_enqueue_script( 'ucf-chart' );
+				}
+
 				ob_start();
 			?>
 				<div <?php echo $args_string; ?>></div>
