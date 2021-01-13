@@ -145,13 +145,13 @@ if ( ! class_exists( 'UCF_Chart_Config' ) ) {
 
 			add_settings_field(
 				self::$option_prefix . 'include_js',
-				'Include default JS',
+				'Include default JS dependencies',
 				array( 'UCF_Chart_Config', 'display_settings_field' ),
 				'ucf_chart',
 				'ucf_chart_section_assets',
 				array(
 					'label_for'   => self::$option_prefix . 'include_js',
-					'description' => 'When checked the included default JS will be enqueued on all pages. (Note: You must initiate all charts manually in your theme javascript file if this is unchecked).',
+					'description' => 'When checked, ChartJS and the plugin\'s included default Javascript will be enqueued on all pages that include a chart. (Note: If unchecked, you must include the ChartJS library and initiate all charts manually in your theme or another plugin).',
 					'type'        => 'checkbox'
 				)
 			);
