@@ -22,6 +22,11 @@ Provides custom post type and shortcode for creating [chart.js](http://www.chart
 
 ## Changelog ##
 
+### 1.0.2 ###
+Enhancements:
+* Updated JS assets to only enqueue on pages that utilize a chart shortcode
+* Upgraded packages
+
 ### 1.0.1 ###
 Bug Fixes:
 * Fixed bug related to first time click on file
