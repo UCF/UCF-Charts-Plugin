@@ -1,0 +1,8 @@
+{
+    "name": "ucf/ucf-charts-plugin",
+    "description": "Provides custom post type and shortcode for creating chart.js charts and graphs.",
+    "type": "wordpress-plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

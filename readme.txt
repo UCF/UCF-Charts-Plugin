@@ -2,8 +2,8 @@
 Contributors: ucfwebcom
 Tags: charts, chart.js, shortcodes
 Requires at least: 4.7.5
-Tested up to: 4.7.6
-Stable tag: 1.0.2
+Tested up to: 6.1
+Stable tag: 1.0.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/copyleft/gpl-3.0.html
 
@@ -28,6 +28,10 @@ Provides custom post type and shortcode for creating [chart.js](http://www.chart
 
 
 == Changelog ==
+
+= 1.0.3 =
+Enhancements:
+* Added composer file.
 
 = 1.0.2 =
 Enhancements:
